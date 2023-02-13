@@ -5,8 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js Tutorial</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    
+    <h1>hello vue :)</h1>
+    <div id="app">
+        <p>{{ title }} - {{ author }} - {{ age }}</p>
+        <!-- v-on is a derective that lets us  -->
+        <button v-on:click="age++">increase age</button>
+        <button v-on:click="age--">decrease age</button>
+        <!-- <div @click="title = 'nope'">new title</div> -->
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
