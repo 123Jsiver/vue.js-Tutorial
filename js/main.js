@@ -3,12 +3,12 @@ const app = Vue.createApp({
     // template: '<h2> I am the template </h2>'
     data() {
         return{
-            url:"https://www.tradeinn.com/techinn/en/neca-teenage-mutant-ninja-turtles-raphael-18-cm-figure/137792031/p?utm_source=google_products&utm_medium=merchant&id_producte=11773862&country=us",
+            url:'https://en.wikipedia.org/wiki/One_Piece',
             showBooks: true,
             books: [
-                {title: 'IS THAT LITERATURE?', author: 'Mr. Vona', img: ''},
-                {title: 'How To Be An Idiot', author: 'Christopher John Sandor', img: ''},
-                {title: 'Lil Tokyo Moment', author: 'Brandon Lu', img: ''}
+                {title: 'IS THAT LITERATURE?', author: 'Mr. Vona', img: 'img/Vona.jpg', isFav: true},
+                {title: 'How To Be An Idiot', author: 'Christopher John Sandor', img: 'img/CJ.png', isFav: false},
+                {title: 'Little Tokyo Moment', author: 'Brandon Lu', img: 'img/Little Tokyo.jpg', isFav: true}
             ]
 
             // title: 'Among Us',
@@ -21,9 +21,17 @@ const app = Vue.createApp({
     methods: {
         toggleShowBooks() {
                     this.showBooks = !this.showBooks
-                }
+                },
+        toggleFav(book) {
+            book.isFav = !book.isFav
+        }
+    },
+    computed: {
+        filteredBooks() {
+            return this.books.filter((book) => book.isFav)
+        // .filter goes through and takes out whatever doesn't come back true
+        }
     }
-
 
 
     // For mouse events
